@@ -5,7 +5,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Application ScreenShot
-## Application ScreenShots
+
 
 <img src="https://github.com/organicboi/Task-Taking-App_React-Native/assets/76643881/40f05a04-132a-4c00-b16e-3b380019d56c" alt="Screenshot 1" width="300">
 <img src="https://github.com/organicboi/Task-Taking-App_React-Native/assets/76643881/ec3588eb-914a-4155-a2f0-575369d63a2b" alt="Screenshot 2" width="300">
