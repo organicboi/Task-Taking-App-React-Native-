@@ -26,7 +26,7 @@ const MainForm = () => {
   const [fetchedTask, setFetchedTask] = useState([]);
   const [editMenuId, setEditMenuId] = useState(null);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState('');
   const [items, setItems] = useState([
     {label: 'Low', value: 'low'},
     {label: 'Medium', value: 'medium'},
@@ -88,6 +88,7 @@ const MainForm = () => {
     getTasks();
     setValue('');
     setShowCreateNewNoteBar(true);
+    // setType('new');
   };
 
   const deleteTask = async id => {
@@ -241,7 +242,7 @@ const MainForm = () => {
                 color: '#F8F6E3',
                 fontWeight: 'bold',
               }}>
-              {type == 'edit' ? 'Update Note' : 'Create New Note'}
+              {type === 'edit' ? 'Update Note' : 'Create New Note'}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -262,6 +263,7 @@ const MainForm = () => {
               setValue('');
               setTaskDesc('');
               setTaskTitle('');
+              setType('new');
             }}>
             <Text
               style={{
@@ -360,6 +362,8 @@ const MainForm = () => {
                   }}>
                   <TouchableOpacity
                     onPress={() => {
+                      setShowCreateNewNoteBar(false);
+
                       setType('edit');
                       setTaskTitle(item.title);
                       setTaskDesc(item.desc);
