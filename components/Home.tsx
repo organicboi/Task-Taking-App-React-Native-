@@ -96,6 +96,7 @@ const MainForm = () => {
       await task.destroyPermanently();
       getTasks();
       setShowEditMenu(false);
+      // setShowCreateNewNoteBar(true);
     });
   };
 
@@ -112,6 +113,7 @@ const MainForm = () => {
       setTaskDesc('');
       setValue('');
       setShowCard(false);
+      setShowCreateNewNoteBar(true);
     });
   };
 
@@ -271,6 +273,7 @@ const MainForm = () => {
         </View>
       )}
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={fetchedTask.sort((a, b) => {
           const priorityOrder = {
             maxPriority: 4,
@@ -279,10 +282,24 @@ const MainForm = () => {
             low: 1,
           };
 
-          return priorityOrder[b.priority] - priorityOrder[a.priority];
+          const priorityValueA = a.priority ? priorityOrder[a.priority] : 0;
+          const priorityValueB = b.priority ? priorityOrder[b.priority] : 0;
+
+          return priorityValueB - priorityValueA;
         })}
         style={{margin: 10}}
         renderItem={({item, index}) => {
+          const priorityOrder = {
+            maxPriority: 4,
+            high: 3,
+            medium: 2,
+            low: 1,
+          };
+
+          const priorityValue = item.priority
+            ? priorityOrder[item.priority]
+            : 0;
+
           return (
             <>
               <TouchableOpacity
